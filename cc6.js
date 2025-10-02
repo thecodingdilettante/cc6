@@ -9,6 +9,7 @@ class Employee {
   }
 }
 
+//Employee Subclass
 class Manager extends Employee {
   constructor(name, department, teamSize) {
     super(name, department);
@@ -20,11 +21,33 @@ class Manager extends Employee {
   }
 }
 
-const emp1 = new Employee("John", "Mathematics");
-console.log(emp1.describe());
-const emp2 = new Employee("Pete", "English");
-console.log(emp2.describe());
-const man1 = new Manager("Kenya", "Mathematics", 50);
-console.log(man1.describe());
-const man2 = new Manager("Zara", "English", 34);
-console.log(man2.describe());
+//Sample Staff
+  let emp1 = new Employee("John", "Mathematics");
+  let emp2 = new Employee("Pete", "English");
+
+  let man1 = new Manager("Kenya", "Mathematics", 30);
+  let man2 = new Manager("Zara", "English", 15);
+
+//New class - step 5
+class Company {
+  constructor() {
+    this.employee = [];
+}
+
+  addEmployee(employee) {
+    this.employee.push(employee);
+  }
+  listEmployees() {
+    this.employee.forEach(emp => console.log(emp.describe()));
+  }
+}
+
+//Step 6
+const company = new Company();
+company.addEmployee(emp1);
+company.addEmployee(emp2);
+company.addEmployee(man1);
+company.addEmployee(man2);
+
+company.listEmployees();
+
